@@ -15,10 +15,7 @@ El siguiente repositorio es un proyecto sobre la implementación de una red neur
 - Código completamente escrito en C++;
 
 **Tabla de contenidos**
-
-[TOCM]
-
-[TOC]
+[TOCM][TOC]
 
 ## Como usar
 
