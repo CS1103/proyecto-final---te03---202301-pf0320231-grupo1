@@ -14,9 +14,6 @@ El siguiente repositorio es un proyecto sobre la implementación de una red neur
 - Uso de [caffe](https://caffe.berkeleyvision.org) que es un deep learning framework ;
 - Código completamente escrito en C++;
 
-**Tabla de contenidos**
-[TOCM][TOC]
-
 ## Como usar
 
 Para clonar y ejecutar nuestro trabajo necesitas [Git](https://git-scm.com) y [C++ compiler](https://www.cs.odu.edu/~zeil/cs250PreTest/latest/Public/installingACompiler/#installing-a-c-compiler-on-microsoft-windows) (recomendamos instalar xcode cli tools si estas en mac os). Después de cumplir con los requisitos puedes ejecutar lo siguiente desde tu línea de comandos:
