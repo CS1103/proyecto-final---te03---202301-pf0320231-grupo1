@@ -9,12 +9,14 @@ CS2013 - Programación III
 
 El siguiente repositorio es un proyecto sobre la implementación de una red neuronal convolucionaria (CNN) en C++ para clasificar imagenes de diferentes categorías como animales o vehículos. Incluimos el diseño de la arquitectura de la red neuronal, la implementación de los pases hacia adelante y hacia atrás, y como optimizamos la red utilizando el descenso de gradiente.
 
+## Video de presentación
+
 ## Características Principales
 
 - Uso de [caffe](https://caffe.berkeleyvision.org) que es un deep learning framework ;
 - Código completamente escrito en C++;
 
-## Como usar
+## Guía de instalación
 
 Para clonar y ejecutar nuestro trabajo necesitas [Git](https://git-scm.com) y [C++ compiler](https://www.cs.odu.edu/~zeil/cs250PreTest/latest/Public/installingACompiler/#installing-a-c-compiler-on-microsoft-windows) (recomendamos instalar xcode cli tools si estas en mac os). Después de cumplir con los requisitos puedes ejecutar lo siguiente desde tu línea de comandos:
 
@@ -27,6 +29,8 @@ $ git clone https://github.com/CS1103/proyecto-final---te03---202301-pf0320231-g
 # Si tienes una clave SSH
 $git clone git@github.com:CS1103/proyecto-final---te03---202301-pf0320231-grupo1.git
 ```
+
+## Instrucciones de uso
 
 ## Diagramas
 
