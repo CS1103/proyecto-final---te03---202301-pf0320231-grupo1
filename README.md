@@ -36,10 +36,10 @@ $git clone git@github.com:CS1103/proyecto-final---te03---202301-pf0320231-grupo1
 
 ## Autores
 
-- [Anlec(Marcelo chincha)](marcelo.chincha@utec.edu.pe)
-- [slamgLuke(Lucas Carranza)](lucas.carranza@utec.edu.pe)
-- [Adrian Cespedes(Adrian Cespedes)](adrian.cespedes@utec.edu.pe)
-- [Hyp3Boy(Lenin Chavez)](lenin.chavez@utec.edu.pe)
+- _Anlec(Marcelo chincha)_
+- _slamgLuke(Lucas Carranza)_
+- _Adrian Cespedes(Adrian Cespedes)_
+- _Hyp3Boy(Lenin Chavez)_
 
 ## Licencia
 
