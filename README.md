@@ -14,7 +14,7 @@ El siguiente repositorio es un proyecto sobre la implementación de una red neur
 - Uso de [caffe](https://caffe.berkeleyvision.org) que es un deep learning framework ;
 - Código completamente escrito en C++;
 
-** Tabla de contenidos **
+**Tabla de contenidos**
 [TOCM]
 
 [TOC]
