@@ -98,3 +98,6 @@ todo!();
 - Guia Python CNN - https://pyimagesearch.com/2020/05/04/covid-19-face-mask-detector-with-opencv-keras-tensorflow-and-deep-learning/
 - Documentación de Qt - https://wiki.qt.io/Qt_for_Beginners
 
+# Rubrica
+https://utec.instructure.com/courses/11683/files/2229177?module_item_id=1178749
+https://utec.instructure.com/courses/11683/files/2233166?module_item_id=1179605
