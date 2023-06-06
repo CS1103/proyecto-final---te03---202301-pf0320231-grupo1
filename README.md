@@ -11,7 +11,9 @@ El siguiente repositorio es un proyecto sobre la implementación de una red neur
 
 ## Características Principales
 
-- Uso de [TensorFlow Lite](https://www.tensorflow.org/lite/guide/inference?hl=es-419#load_and_run_a_model_in_c)
+- Uso de [TensorFlow](https://www.tensorflow.org/?hl=es-419) (Python) para entrenamiento.
+- Uso de [TensorFlow Lite](https://www.tensorflow.org/lite/guide/inference?hl=es-419#load_and_run_a_model_in_c) (C++) para realizar inferencia.
+- Uso de [Qt](https://www.qt.io/) (C++) para construir una UI simple.
 
 ## Pasos a Seguir
 
