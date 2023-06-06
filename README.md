@@ -9,12 +9,17 @@ CS2013 - Programación III
 
 El siguiente repositorio es un proyecto sobre la implementación de una red neuronal convolucionaria (CNN) en C++ para clasificar imagenes de diferentes categorías como animales o vehículos. Incluimos el diseño de la arquitectura de la red neuronal, la implementación de los pases hacia adelante y hacia atrás, y como optimizamos la red utilizando el descenso de gradiente.
 
-## Video de presentación
-
 ## Características Principales
 
-- Uso de [caffe](https://caffe.berkeleyvision.org) que es un deep learning framework ;
-- Código completamente escrito en C++;
+- Uso de [TensorFlow Lite]() para C++ para leer 
+
+## Pasos a Seguir
+
+1. hola
+2. adios
+2.1. ho-
+
+
 
 ## Guía de instalación
 
