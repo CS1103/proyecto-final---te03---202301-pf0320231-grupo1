@@ -68,7 +68,7 @@ MyFrame::MyFrame(const wxString &title, const wxPoint &pos, const wxSize &size)
 
     wxString executablePath = wxStandardPaths::Get().GetExecutablePath();
     wxString basePath = wxFileName(executablePath).GetPath();
-    wxString imagePath = basePath + wxT("\\default.png");
+    wxString imagePath = basePath + wxT("/default.png");
 
     wxBitmap bitmap(imagePath, wxBITMAP_TYPE_ANY);
     m_bitmap1 = new wxStaticBitmap(this, wxID_ANY, bitmap, wxPoint(0, 0), wxSize(100, 100));
