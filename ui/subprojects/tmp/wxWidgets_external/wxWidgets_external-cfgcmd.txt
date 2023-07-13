@@ -1,0 +1,1 @@
+cmd='/opt/homebrew/Cellar/cmake/3.26.4/bin/cmake;-DCMAKE_INSTALL_PREFIX=/Users/lenin.chavez/Documents/Programacion-III/proyecto-final---te03---202301-pf0320231-grupo1/ui/stage;-DCMAKE_BUILD_TYPE=;-DwxBUILD_SHARED=OFF;-GUnix Makefiles;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'
