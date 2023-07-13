@@ -14,9 +14,15 @@ set(wxWidgets_USE_STATIC 1)
 
 find_package(wxWidgets REQUIRED)
 
+# python =======================================================================
+find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
+include_directories(${Python3_INCLUDE_DIRS})
+# ==============================================================================
+
 set(SRCS main.cpp)
 
 include(${wxWidgets_USE_FILE})
+
 
 if(APPLE)
     # create bundle on apple compiles
@@ -32,3 +38,7 @@ else()
 endif()
 
 target_link_libraries(main PRIVATE ${wxWidgets_LIBRARIES})
+
+# python =======================================================================
+target_link_libraries(main PRIVATE Python3::Python)
+# ==============================================================================

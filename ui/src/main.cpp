@@ -9,6 +9,7 @@
 #include <wx/stdpaths.h>
 #include <wx/image.h>
 #include <wx/filename.h>
+#include <Python.h>
 #endif
 
 class MyApp : public wxApp
@@ -92,7 +93,62 @@ void MyFrame::OpenImage(wxCommandEvent &event)
 
     wxString filePath = openFileDialog.GetPath();
     wxImage bitmap(filePath, wxBITMAP_TYPE_ANY);
-    wxImage imagesScaled = bitmap.Rescale(512, 512, wxIMAGE_QUALITY_HIGH);
+    wxImage imagesScaled = bitmap.Rescale(256, 256, wxIMAGE_QUALITY_HIGH);
+
+    struct Pixel {
+        unsigned int r, g, b;
+    };
+
+    Pixel **pixelMatrix = new Pixel *[256];
+    for (int i = 0; i < 256; i++) {
+        pixelMatrix[i] = new Pixel[256];
+        for (int j = 0; j < 256; j++) {
+            pixelMatrix[i][j].r = imagesScaled.GetRed(i, j);
+            pixelMatrix[i][j].g = imagesScaled.GetGreen(i, j);
+            pixelMatrix[i][j].b = imagesScaled.GetBlue(i, j);
+        }
+    }
+
+    // put the matrix in a string (for python)
+    std::string scriptString =  "import numpy as np\n"
+                                "import tensorflow as tf\n"
+                                "from tensorflow.keras.models import load_model\n"
+                                "matrix = [";
+    for (int i = 0; i < 256; i++) {
+        scriptString += "[";
+        for (int j = 0; j < 256; j++)
+        {
+            scriptString += "[";
+            scriptString += std::to_string(pixelMatrix[i][j].r);
+            scriptString += ",";
+            scriptString += std::to_string(pixelMatrix[i][j].g);
+            scriptString += ",";
+            scriptString += std::to_string(pixelMatrix[i][j].b);
+            scriptString += "]";
+            if (j != 255)
+                scriptString += ",";
+        }
+        scriptString += "]";
+        if (i != 255)
+            scriptString += ",";
+    }
+    scriptString += "]\n"
+                    "model = load_model('model.h5')\n"
+                    "yhat = model.predict(matrix)\n"
+                    "print(yhat)\n";
+    std::cout << scriptString << std::endl;
+
+    // python script
+    // import numpy as np
+    // from tensorflow.keras.models import load_model
+    // matrix = // read from cpp string
+    // model = load_model('model.h5')
+    // model.predict(np.expand_dims(matrix/255, 0))
+    Py_Initialize();
+    PyRun_SimpleString(scriptString.c_str());
+    Py_Finalize();
+
+
 
     wxBitmap dataScaled(imagesScaled);
     m_bitmap1->SetBitmap(dataScaled);
