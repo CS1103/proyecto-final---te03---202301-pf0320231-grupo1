@@ -7,13 +7,13 @@ CS2013 - Programación III
 
 ### Acerca del Proyecto
 
-El siguiente repositorio es un proyecto sobre la implementación de una red neuronal convolucionaria (CNN) en C++ para clasificar imagenes de diferentes categorías como animales o vehículos. Incluimos el diseño de la arquitectura de la red neuronal, la implementación de los pases hacia adelante y hacia atrás, y como optimizamos la red utilizando el descenso de gradiente.
+El siguiente repositorio es un proyecto sobre la implementación de una red neuronal convolucionaria (CNN) en C++, creada y entrenada en python para clasificar imagenes de vehículos y no vehículos.
 
 ## Características Principales
 
-- Uso de [TensorFlow](https://www.tensorflow.org/?hl=es-419) (Python) para entrenamiento.
-- Uso de [TensorFlow Lite](https://www.tensorflow.org/lite/guide/inference?hl=es-419#load_and_run_a_model_in_c) (C++) para realizar inferencia.
-- Uso de [Qt](https://www.qt.io/) (C++) para construir una UI simple.
+- Uso de [TensorFlow](https://www.tensorflow.org/?hl=es-419) (Python) para entrenamiento y creación de la red neuronal
+- Uso de [Python.h] (C++) para transformar las imágenes a matrices y realizar el paso de imágenes al modelo, por concurrencia.
+- Uso de [wxWidgets](https://www.wxwidgets.org/) (C++) para construir una UI simple.
 
 ## Pasos a Seguir
 
@@ -26,35 +26,30 @@ El siguiente repositorio es un proyecto sobre la implementación de una red neur
 - Importar `tensorflow.keras` para realizar el pre-procesamiento de imágenes, "augmentation" de data y cargar la arquitectura `MobileNetV2`.
 - Definimos los parámetros de deep learning (epochs, learning rate, etc.).
 - Compilamos nuestra "network" de entrenamiento.
-- Realizamos el fine-tuning a `MobileNetV2`.
 - Con mathplotlib revisamos las curvas de aprendizaje y su evolución con cada regresión (epoch).
-- Una vez listo, exportamos el modelo en formato `.tflite` en nuestro directorio del proyecto de C++.
 
 
-### 2. Crear un programa en C++ que use los pesos de la CNN, reciba una imagen como parametro, y retorne la inferencia.
+### 2. Crear un programa en C++ que la CNN, reciba una imagen como parametro, y retorne la inferencia.
 
-- Incluimos las librerías de TensorFlow Lite, clonando su repositorio en nuestro directorio del proyecto.
+- Incluimos el header file `Python.h`, el cuál viene con la instalación de python, permite usar python embebido en c++.
 - Vinculamos las librerias a nuestro ejecutable en el `CMakeLists.txt`.
 - En nuestro main.cpp, creamos una funcion `int main(int argc, char **argv)`, que reciba como parámetro una cadena de caracteres que contiene la dirección de la imagen a ser procesada.
-- Creamos un puntero inteligente de una instancia de la clase `tflite::FlatBufferModel`, la cual recibe el modelo creado anteriormente.
-- Creamos un puntero inteligente además a `tflite::Interpreter`, clase que se encarga de ejecutar el modelo.
-- Recibimos los parámetros al leer la imagen, como su alto, ancho, a través del `Interpreter`.
-- Adaptamos los parámetros de la imagen para que sea legible por el modelo.
-- Llamamos al método `Invoke()` de `Interpreter` para que nos retorne un arreglo con los resultados, y un vector con los valores de certeza.
-- Obtenemos el resultado cuya certeza sea la máxima.
-- Retornamos el resultado.
-- Compilamos el código y dejamos el ejecutable en un directorio desde el que pueda ser llamado.
+- Adaptamos los parámetros de la imagen(255x255) para que sea legible por el modelo.
+- Creamos la estructura `pixel` para poder utilizar métodos de wx para poder identificar color pixel por pixel de la imagen y así realizar una matriz.
+- Utilizamos el python embebido para mostrar la matriz en consola. 
+- Convertimos la matriz a numpy arrays, para la lectura por parte del modelo.
+- Obtenemos el resultado.
+- Retornamos el resultado y lo mostramos en pantalla.
 
 
 ### 3. Crear una interfaz en C++ que reciba una imagen como entrada, llame al ejecutable previo, y muestre la inferencia al usuario.
 
-- Incluimos las librerías de Qt para interfaz gráfica y archivos, clonando su repositorio en nuestro directorio del proyecto.
+- Incluimos las librerías de wxWidgets para interfaz gráfica y archivos, clonando su repositorio en nuestro directorio del proyecto.
 - Vinculamos las librerías a nuestro ejecutable en el `CMakeLists.txt`.
-- Creamos una función `main()` que sea un loop continuo.
+- Creamos una clase `MyApp` que tenga un método booleano virtual, esta es una clase heredada de wxApp.
 - Creamos una instancia de una ventana con un widget que llame a un selector de imagenes.
 - Creamos una función para cuando el usuario selecciona una imagen, se copia dentro de un directorio dedicado en la carpeta del proyecto.
-- Vinculamos el boton de Qt con la función para copiar el archivo.
-- Usando la función `system()`, la aplicación de la interfaz gráfica llama al ejecutable de la CNN y le pasa como atributo la ruta del nuevo archivo.
+- Vinculamos el boton de wxWidgets con la función para copiar el archivo.
 - Guardamos la respuesta en una variable `result`, la cual se muestra en la interfaz gráfica de ser válida.
 
 
@@ -73,8 +68,20 @@ $git clone git@github.com:CS1103/proyecto-final---te03---202301-pf0320231-grupo1
 ```
 
 ## Instrucciones de uso
-```rust
-todo!();
+### Linux y MacOSX
+```bash
+# Una vez clonado el repositorio ingresamos a el con cd
+$ cd proyecto-final--te03--202301-pf0320231-grupo1
+# ingresamos a la carpeta ui
+$ cd ui
+$ cmake .
+$ cmake --build .
+# si es linux
+$ ./subprojects/Build/wx_cmake_template_core/main
+# si es mac
+$ ./subprojects/Build/wx_cmake_template_core/main.app/Contents/MacOS/main
+# Esto debido a que macOSX interpreta nuestro trabajo como una aplicación añadiendo el .app
+
 ```
 
 ## Diagramas
@@ -94,9 +101,9 @@ todo!();
 [MIT](https://choosealicense.com/licenses/mit/)
 
 ## Bibliografía
-- TensorFlowLite para C++ - https://www.tensorflow.org/lite/guide/inference?hl=es-419#load_and_run_a_model_in_c
+- Python embedding en C++ - https://docs.python.org/3/extending/embedding.html
 - Guia Python CNN - https://pyimagesearch.com/2020/05/04/covid-19-face-mask-detector-with-opencv-keras-tensorflow-and-deep-learning/
-- Documentación de Qt - https://wiki.qt.io/Qt_for_Beginners
+- Documentación de wxWidgets - https://www.wxwidgets.org/docs/book/
 
 # Rubrica
 https://utec.instructure.com/courses/11683/files/2229177?module_item_id=1178749
