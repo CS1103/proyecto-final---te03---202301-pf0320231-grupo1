@@ -21,7 +21,7 @@ El siguiente repositorio es un proyecto sobre la implementación de una red neur
 
 - Instalar `TensorFlow` para Python.
 - Recolectar la dataset para entrenamiento.
-- Separamos 60% de las imagenes del dataset para el entrenamiento, 40% para el testing.
+- Separamos 70% de las imagenes del dataset para el entrenamiento, 10% para el testing y 20% para la validación.
 - Creamos un proyecto de python.
 - Importar `tensorflow.keras` para realizar el pre-procesamiento de imágenes, "augmentation" de data y cargar la arquitectura `MobileNetV2`.
 - Definimos los parámetros de deep learning (epochs, learning rate, etc.).
