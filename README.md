@@ -119,6 +119,9 @@ $ ./subprojects/Build/wx_cmake_template_core/main.app/Contents/MacOS/main
 
 ```
 
+## Presentación
+
+https://docs.google.com/presentation/d/1zVVWaHJeYdEZn9EfG2Wznk3AudxNmPLXlQ1SJn2XecE/edit?usp=sharing
 
 ## Autores
 
