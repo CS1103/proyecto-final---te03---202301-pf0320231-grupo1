@@ -119,10 +119,6 @@ $ ./subprojects/Build/wx_cmake_template_core/main.app/Contents/MacOS/main
 
 ```
 
-## Diagramas
-```rust
-todo!();
-```
 
 ## Autores
 
