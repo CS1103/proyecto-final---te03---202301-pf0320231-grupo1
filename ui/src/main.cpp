@@ -119,11 +119,11 @@ void MyFrame::OpenImage(wxCommandEvent &event)
         for (int j = 0; j < 256; j++)
         {
             scriptString += "[";
-            scriptString += std::to_string(pixelMatrix[i][j].r);
+            scriptString += std::to_string(float(pixelMatrix[i][j].r)/255.0);
             scriptString += ",";
-            scriptString += std::to_string(pixelMatrix[i][j].g);
+            scriptString += std::to_string(float(pixelMatrix[i][j].g)/255.0);
             scriptString += ",";
-            scriptString += std::to_string(pixelMatrix[i][j].b);
+            scriptString += std::to_string(float(pixelMatrix[i][j].b)/255.0);
             scriptString += "]";
             if (j != 255)
                 scriptString += ",";
@@ -133,9 +133,14 @@ void MyFrame::OpenImage(wxCommandEvent &event)
             scriptString += ",";
     }
     scriptString += "]\n"
-                    "model = load_model('model.h5')\n"
-                    "yhat = model.predict(matrix)\n"
-                    "print(yhat)\n";
+                    "matrix = np.expand_dims(matrix, axis=0)\n"
+                    "model = load_model('model2.h5')\n"
+                    "yhat = model.predict(matrix)*255\n"
+                    "print('Predicted: ', yhat)\n"
+                    "if yhat > 0.5:\n"
+                    "    print('Vehículo')\n"
+                    "else:\n"
+                    "    print('No vehículo')\n";
     std::cout << scriptString << std::endl;
 
     // python script
