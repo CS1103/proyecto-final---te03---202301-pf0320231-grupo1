@@ -28,6 +28,41 @@ El siguiente repositorio es un proyecto sobre la implementación de una red neur
 - Compilamos nuestra "network" de entrenamiento.
 - Con mathplotlib revisamos las curvas de aprendizaje y su evolución con cada regresión (epoch).
 
+#### Resumen de la arquitectura
+- Capa de convolución:
+  - Filtros: 16
+  - Tamaño del filtro: (3, 3)
+  - Stride: 1
+  - Función de activación: ReLU (Rectified Linear Unit)
+  - Tamaño de entrada: (256, 256, 3) (ancho, alto, canales de color RGB)
+
+- Capa de Max Pooling:
+  - Tamaño del filtro: por defecto (2, 2) (reduce a la mitad el tamaño espacial de la entrada)
+
+- Capa de convolución:
+  - Filtros: 32
+  - Tamaño del filtro: (3, 3)
+  - Stride: 1
+  - Función de activación: ReLU
+
+- Capa de Max Pooling.
+
+- Capa de convolución:
+  - Filtros: 16
+  - Tamaño del filtro: (3, 3)
+  - Stride: 1
+  - Función de activación: ReLU
+
+- Capa de Max Pooling.
+- Capa de aplanamiento (Flatten):
+  - Transforma los datos en un vector unidimensional para alimentar la capa densa.
+- Capa densa (fully connected):
+  - Neuronas: 256
+  - Función de activación: ReLU
+- Capa de salida:
+  - Neuronas: 1
+  - Función de activación: Sigmoide (para problemas de clasificación binaria)
+Este modelo de CNN tiene una estructura en cascada, donde las capas de convolución y max pooling se repiten varias veces antes de la capa de aplanamiento. Luego, sigue con capas densas antes de la capa de salida.
 
 ### 2. Crear un programa en C++ que la CNN, reciba una imagen como parametro, y retorne la inferencia.
 
