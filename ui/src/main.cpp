@@ -141,7 +141,7 @@ void MyFrame::OpenImage(wxCommandEvent &event)
                     "    print('Vehículo')\n"
                     "else:\n"
                     "    print('No vehículo')\n";
-    std::cout << scriptString << std::endl;
+    // std::cout << scriptString << std::endl;
 
     // python script
     // import numpy as np
