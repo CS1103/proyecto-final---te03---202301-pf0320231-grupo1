@@ -1,8 +1,0 @@
-Collecting keras-rl2==1.0.4
-  Downloading keras_rl2-1.0.4-py3-none-any.whl (53 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.2/53.2 kB 3.0 MB/s eta 0:00:00
-Collecting tensorflow
-  Downloading tensorflow-2.13.0-cp310-cp310-macosx_12_0_arm64.whl (1.9 kB)
-Collecting tensorflow-macos==2.13.0 (from tensorflow)
-  Downloading tensorflow_macos-2.13.0-cp310-cp310-macosx_12_0_arm64.whl (189.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━                  111.1/189.3 MB 5.0 MB/s eta 0:00:16
